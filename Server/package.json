@@ -1,0 +1,22 @@
+{
+  "name": "fias_go",
+  "version": "1.0.0",
+  "description": "A Complete Disaster",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/R-047/FiasGo.git"
+  },
+  "author": "Rohith EP",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/R-047/FiasGo/issues"
+  },
+  "homepage": "https://github.com/R-047/FiasGo#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
