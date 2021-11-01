@@ -1,6 +1,6 @@
 const {getClient} = require('../Utils/DBConfig');
 const { getUsersCamps } = require('./MapsModel');
-const {getUsersVictimsPost, getUsersServicesPost, getServicePost} = require('./PostModel');
+const {getUsersVictimsPost, getUsersServicesPost} = require('./PostModel');
 const {getUserSupports} = require('./SupportsModel')
 
 const authuser = async (email, password) => {
