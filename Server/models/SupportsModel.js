@@ -1,5 +1,5 @@
 
-const {getClient} = require('../utils/DBConfig');
+const {getClient} = require('../Utils/DBConfig');
 
 const supportVictim = async(user_id, desc, post_id, list_item_id, quantity, timestamp) => {
 	return new Promise(async (res, rej) => {

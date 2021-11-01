@@ -1,4 +1,4 @@
-const {getClient} = require('../utils/DBConfig');
+const {getClient} = require('../Utils/DBConfig');
 
 
 // victim_post_report_id | v_post_id | user_id | report_desc

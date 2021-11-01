@@ -1,4 +1,4 @@
-const {getClient} = require('../utils/DBConfig');
+const {getClient} = require('../Utils/DBConfig');
 
 
 const getVictimsFeed = async () => {
