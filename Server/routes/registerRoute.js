@@ -1,13 +1,9 @@
 const express = require("express");
 const registerRouter = express.Router();
-const {registerUser} = require("../models/registerUser")
+const {userRegister} = require("../controllers/UserController")
 
-registerRouter.post((req, res) => {
-	const username = req.body.name;
-	const email = req.body.email;
-	const password = req.body.password;
-	const phone_number = req.body.ph_number;
-	registerUser(username, email, password, phone_number)
+registerRouter.post("/", (req, res) => {
+	userRegister(req, res)
 })
 
 module.exports = registerRouter;

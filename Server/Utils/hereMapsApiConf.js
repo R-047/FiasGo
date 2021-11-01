@@ -52,7 +52,7 @@ function generateToken() {
 
 
 
-async function getHospitalsCoordinates(in_url){
+async function UseHereMaps(in_url){
     var token = await generateToken(); // passing the access_token 
     return new Promise((res, rej) => {
     
@@ -86,6 +86,17 @@ async function getHospitalsCoordinates(in_url){
 
 
 
-//testFunc()
 
-module.exports = {getHospitalsCoordinates}
+// async function testMapsApi(){
+// console.log("testing . . . ")
+// const result = await UseHereMaps(`https://revgeocode.search.hereapi.com/v1/revgeocode?at=12.4244%2C75.7382&lang=en-US`)
+// console.log(JSON.stringify(result, null, 4))
+// console.log(result.items[0].address.county +","+result.items[0].address.state);
+// }
+
+// testMapsApi();
+
+
+
+
+module.exports = {UseHereMaps}

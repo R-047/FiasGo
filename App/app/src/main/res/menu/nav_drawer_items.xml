@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group>
+    <item android:id="@+id/logout"
+        android:title="logout"/>
+
+
+    <item android:id="@+id/exit"
+
+        android:title="exit">
+    </item>
+    </group>
+
+    <item android:title="others">
+        <menu>
+            <item android:id="@+id/share"
+
+                android:title="share">
+
+            </item>
+        </menu>
+    </item>
+
+</menu>
