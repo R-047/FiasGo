@@ -125,6 +125,8 @@ public class MainActivity extends AppCompatActivity {
                     getSupportFragmentManager().beginTransaction().replace(R.id.options_holder, uploadPost).commit();
                     Toast.makeText(MainActivity.this, "open post", Toast.LENGTH_SHORT).show();
                     break;
+                case R.id.timeline_itm:
+
             }
             return true;
         }

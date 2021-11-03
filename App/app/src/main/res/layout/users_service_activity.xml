@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/activity_service_image_container"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/custom_imageslider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:background="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/user_activity_service_desc"
+        app:layout_constraintEnd_toStartOf="@+id/activity_service_image_container"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/activity_service_image_container"
+        app:layout_constraintEnd_toStartOf="@+id/activity_service_image_container"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_dot_svgrepo_com" />
+
+    <TextView
+        android:id="@+id/user_activity_service_date_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="2020-01-01"
+        app:layout_constraintBottom_toTopOf="@+id/activity_service_image_container"
+        app:layout_constraintStart_toStartOf="@+id/activity_service_image_container" />
+
+    <TextView
+        android:id="@+id/user_Activity_service_desc_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Details"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/activity_service_image_container"
+        app:layout_constraintTop_toBottomOf="@+id/user_activity_service_upvotes" />
+
+    <TextView
+        android:id="@+id/user_activity_service_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="16dp"
+        android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/activity_service_image_container"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/user_Activity_service_desc_header"
+        app:layout_constraintTop_toBottomOf="@+id/user_Activity_service_desc_header" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/activity_service_image_container"
+        app:layout_constraintTop_toBottomOf="@+id/activity_service_image_container"
+        app:srcCompat="@drawable/upvote_icon" />
+
+    <ImageView
+        android:id="@+id/user_Activity_service_supports_iv"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@+id/imageView6"
+        app:layout_constraintTop_toBottomOf="@+id/activity_service_image_container"
+        app:srcCompat="@drawable/support_icon" />
+
+    <TextView
+        android:id="@+id/user_activity_service_upvotes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="256"
+        app:layout_constraintEnd_toEndOf="@+id/imageView6"
+        app:layout_constraintStart_toStartOf="@+id/imageView6"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+
+    <TextView
+        android:id="@+id/user_Activity_service_comments_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="12"
+        app:layout_constraintEnd_toEndOf="@+id/user_Activity_service_supports_iv"
+        app:layout_constraintStart_toStartOf="@+id/user_Activity_service_supports_iv"
+        app:layout_constraintTop_toBottomOf="@+id/user_Activity_service_supports_iv" />
+</androidx.constraintlayout.widget.ConstraintLayout>

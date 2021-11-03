@@ -66,8 +66,10 @@ public class CustomInfoWindowAdapter implements GoogleMap.InfoWindowAdapter {
                         ((ViewGroup) view).addView(camp_image);
                     }
                     RequestParams params = new RequestParams();
-                    String camp_img_name = location_data.getJSONArray("images").getJSONObject(0).getString("camp_image_name");
-                    if (camp_img_name != "") {
+                    JSONArray camp_img_names = location_data.getJSONArray("images");
+                    String camp_img_name = null;
+                    if(camp_img_names.length()!=0){
+                        camp_img_name = camp_img_names.getJSONObject(0).getString("camp_image_name");
                         params.put("imageName", camp_img_name);
                         setImage(params, camp_image.findViewById(R.id.camp_imageview), "getCampsImages");
                     }
