@@ -121,11 +121,16 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case R.id.post_itm:
                     //bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
+                    bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
                     Fragment uploadPost = new UploadPostFragment();
                     getSupportFragmentManager().beginTransaction().replace(R.id.options_holder, uploadPost).commit();
                     Toast.makeText(MainActivity.this, "open post", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.timeline_itm:
+                    bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+                    Fragment timeLine = new TimelineFragment();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.options_holder, timeLine).commit();
+                    Toast.makeText(MainActivity.this, "open timeline", Toast.LENGTH_SHORT).show();
 
             }
             return true;

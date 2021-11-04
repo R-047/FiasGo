@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require('cors')
 const cookieParser = require("cookie-parser");
 const expressSession = require("express-session");
 const { Authenticate } = require("./middlewares/authenticate");
@@ -6,7 +7,7 @@ const {AdminAuthenticate} = require("./middlewares/adminAuth")
 const bodyParser = require("body-parser");
 const app = express();
 
-
+app.use(cors());
 
 app.get("/", (req, res) => {
 	console.log("hi");
