@@ -34,7 +34,7 @@ app.get("/", (req, res) => {
 
 //utility middlewares
 app.use(cookieParser());
-app.use(expressSession({ secret: "its a secret"}));
+app.use(expressSession({ secret: "its a secret", cookie: { secure: true, sameSite: "None" }}));
 app.use(bodyParser.urlencoded({
 	extended: true
 }))
