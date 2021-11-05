@@ -6,8 +6,19 @@ const { Authenticate } = require("./middlewares/authenticate");
 const {AdminAuthenticate} = require("./middlewares/adminAuth")
 const bodyParser = require("body-parser");
 const app = express();
+const path = require("path")
 
-app.use(cors());
+const corsOptions = {
+	origin: [
+		"http://localhost:3000",
+		"http://127.0.0.1:3000",
+		"http://104.142.122.231",
+		"http://127.0.0.1:5500"
+	      ],
+	credentials: true
+      };
+app.use(cors(corsOptions));
+
 
 app.get("/", (req, res) => {
 	console.log("hi");
@@ -16,14 +27,14 @@ app.get("/", (req, res) => {
 
 })
 
-
+// app.use(express.static(path.join(__dirname, "admins")));
 
 
 
 
 //utility middlewares
 app.use(cookieParser());
-app.use(expressSession({ secret: "its a secret" }));
+app.use(expressSession({ secret: "its a secret"}));
 app.use(bodyParser.urlencoded({
 	extended: true
 }))
