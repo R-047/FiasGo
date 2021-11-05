@@ -108,4 +108,4 @@ app.use("/reportPost", require("./routes/reportPostRouter").reportPostRouter)
 //get news
 //Users Activity
 const port = process.env.PORT || 3000;
-app.listen(port, () => console.log("server running on port 3000"))
+app.listen(port, () => console.log("server running on port 3000...CORS enabled"))
