@@ -29,10 +29,6 @@ app.get("/", (req, res) => {
 
 
 
-// app.use('/adminLogin', express.static(path.join(__dirname, "admins"), options))
-
-
-
 
 //utility middlewares
 app.use(cookieParser());
