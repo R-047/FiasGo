@@ -10,12 +10,12 @@ const path = require("path")
 
 const corsOptions = {
 	origin: [
-		"http://localhost:3000",
-		"http://127.0.0.1:3000",
-		"http://104.142.122.231",
-		"http://127.0.0.1:5500"
+		"http://127.0.0.1:5500",
+		"http://localhost:5500"
 	      ],
-	credentials: true
+	credentials: true,
+	exposedHeaders: ['Set-Cookie'],
+	allowedHeaders: ['Content-Type', 'Authorization', 'Set-Cookie']
       };
 app.use(cors(corsOptions));
 
@@ -27,14 +27,16 @@ app.get("/", (req, res) => {
 
 })
 
-// app.use(express.static(path.join(__dirname, "admins")));
+
+
+// app.use('/adminLogin', express.static(path.join(__dirname, "admins"), options))
 
 
 
 
 //utility middlewares
 app.use(cookieParser());
-app.use(expressSession({ secret: "its a secret", cookie: { secure: true, sameSite: "None" }}));
+app.use(expressSession({ secret: "its a secret"}));
 app.use(bodyParser.urlencoded({
 	extended: true
 }))
