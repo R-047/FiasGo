@@ -1,5 +1,6 @@
 package com.example.fiasgo;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -7,6 +8,7 @@ import android.graphics.BitmapFactory;
 import android.hardware.Camera;
 import android.hardware.camera2.CameraAccessException;
 import android.media.Image;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
@@ -40,7 +42,7 @@ public class UploadPostFragment extends Fragment {
     private CameraPreview cameraPreview;
     private ImageView captureImage;
     private FrameLayout cam_holder;
-    ImageView selectedImages;
+    ImageView selectedImages, galleryBtn;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -94,6 +96,7 @@ public class UploadPostFragment extends Fragment {
         selectedImages = view.findViewById(R.id.selected_pics);
         captureImage = view.findViewById(R.id.capture_btn);
         cam_holder = view.findViewById(R.id.cam_holder_preview);
+        galleryBtn = view.findViewById(R.id.gallery_img_btn);
         super.onViewCreated(view, savedInstanceState);
     }
 
@@ -129,8 +132,43 @@ public class UploadPostFragment extends Fragment {
             }
         });
 
+        galleryBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                selectImageFromGallery();
+            }
+        });
+
     }
 
+    public void selectImageFromGallery(){
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent,"Select Picture"), 1);
+    }
+
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 1) {
+            if(resultCode == Activity.RESULT_OK) {
+                if(data.getClipData() != null) {
+                    int count = data.getClipData().getItemCount(); //evaluate the count before the for loop --- otherwise, the count is evaluated every loop.
+                    for(int i = 0; i < count; i++) {
+                        Uri imageUri = data.getClipData().getItemAt(i).getUri();
+                        System.out.println(imageUri);
+                        String imagePath = imageUri.getEncodedPath();
+                        System.out.println(imagePath);
+                        selectedImagesArray.add(imagePath);
+                        //do something with the image (save it to some directory or whatever you need to do with it here)
+                    }
+                }
+            }
+    }
+    }
 
 
     Camera.PictureCallback mPictureCallback = new Camera.PictureCallback() {

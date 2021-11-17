@@ -2,11 +2,27 @@ package com.example.fiasgo;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.fiasgo.Adapters.UserActivityAdapter;
+import com.example.fiasgo.utils.FiasGoApi;
+import com.example.fiasgo.utils.User;
+import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import cz.msebera.android.httpclient.Header;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +30,8 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class TimelineFragment extends Fragment {
+    RecyclerView user_Activity_cont;
+    UserActivityAdapter userActivityAdapter;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -59,6 +77,57 @@ public class TimelineFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_timeline, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        user_Activity_cont = getActivity().findViewById(R.id.timelines_rv);
+        RequestParams params = new RequestParams();
+        params.put("user_id", User.getUser().user_id);
+        System.out.println("SENDING GET REQ TO GET ACTVITIES");
+        GetIt(params, "getActivities");
+        super.onViewCreated(view, savedInstanceState);
+
+    }
+
+    public void loadTimeline(JSONArray jsonArray){
+        userActivityAdapter = new UserActivityAdapter(getContext(), jsonArray);
+        user_Activity_cont.setAdapter(userActivityAdapter);
+        user_Activity_cont.setLayoutManager(new LinearLayoutManager(getContext()));
+    }
+
+    public void GetIt(RequestParams params, String relUrl){
+        FiasGoApi.get(relUrl, params, new JsonHttpResponseHandler(){
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                if(!checkAuthError(response)){
+
+                }
+                else{
+                    User.Logout(getActivity());
+                }
+            }
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                System.out.println(response);
+                loadTimeline(response);
+            }
+        });
+    }
+
+    public boolean checkAuthError(JSONObject jsonObject){
+        try {
+            if(jsonObject.getString("error").equals("null")){
+                return false;
+            }else{
+                return true;
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }

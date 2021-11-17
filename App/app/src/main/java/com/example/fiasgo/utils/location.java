@@ -26,6 +26,10 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
+import org.json.JSONException;
+
+import java.io.FileNotFoundException;
+
 public class location {
     Context context;
     Fragment fragment;
@@ -72,7 +76,13 @@ public class location {
                             }else{
                                 li = (location_interface) fragment;
                             }
-                            li.getCoords(public_location);
+                            try {
+                                li.getCoords(public_location);
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            } catch (FileNotFoundException e) {
+                                e.printStackTrace();
+                            }
 
                         }
                     }
@@ -123,7 +133,13 @@ public class location {
             }else{
                 li = (location_interface) fragment;
             }
-            li.getCoords(public_location);
+            try {
+                li.getCoords(public_location);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
 
         }
     };
@@ -153,7 +169,7 @@ public class location {
 
     // If everything is alright then
     public interface location_interface{
-        public void getCoords(Location location);
+        public void getCoords(Location location) throws JSONException, FileNotFoundException;
     }
 
 }

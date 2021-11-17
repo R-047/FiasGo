@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 
@@ -33,16 +35,19 @@ public class SignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
         User.ACTIVITY = this;
-        sign_up();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public void sign_up() {
+    public void sign_up(View v) {
+        String name = ((EditText)findViewById(R.id.signup_name_et)).getText().toString().trim();
+        String pwd = ((EditText)findViewById(R.id.signup_pwd_et)).getText().toString().trim();
+        String email = ((EditText)findViewById(R.id.signup_email_et)).getText().toString().trim();
+        String ph_num = ((EditText)findViewById(R.id.signup_phnum_et)).getText().toString().trim();
         RequestParams params = new RequestParams();
-        params.put("name", "Jonathan");
-        params.put("email", "jonathan@gmail.com");
-        params.put("password", "1234");
-        params.put("ph_number", "9090909090");
+        params.put("name", name);
+        params.put("email", email);
+        params.put("password", pwd);
+        params.put("ph_number", ph_num);
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
         String ts = dtf.format(now);

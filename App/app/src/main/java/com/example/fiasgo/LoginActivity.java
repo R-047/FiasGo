@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 
@@ -39,9 +40,11 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void login(View v){
+        String email = ((EditText)findViewById(R.id.login_email_et)).getText().toString().trim();
+        String pwd = ((EditText)findViewById(R.id.login_pwd_et)).getText().toString().trim();
         RequestParams params = new RequestParams();
-        params.put("email", "abhay@gmail.com");
-        params.put("password", "1234");
+        params.put("email", email);
+        params.put("password", pwd);
         FiasGoApi.post("login", params, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {

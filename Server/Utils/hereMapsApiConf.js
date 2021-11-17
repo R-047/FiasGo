@@ -89,9 +89,11 @@ async function UseHereMaps(in_url){
 
 // async function testMapsApi(){
 // console.log("testing . . . ")
-// const result = await UseHereMaps(`https://revgeocode.search.hereapi.com/v1/revgeocode?at=12.4244%2C75.7382&lang=en-US`)
+// const users_location_lat = 13.0508;
+// const users_location_long = 77.5154;
+// const result = await UseHereMaps(`https://discover.search.hereapi.com/v1/discover?at=${users_location_lat},${users_location_long}&limit=10&q=hospitals&in=countryCode:IND`)
 // console.log(JSON.stringify(result, null, 4))
-// console.log(result.items[0].address.county +","+result.items[0].address.state);
+// // console.log(result.items[0].address.county +","+result.items[0].address.state);
 // }
 
 // testMapsApi();

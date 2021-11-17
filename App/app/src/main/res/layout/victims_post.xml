@@ -17,10 +17,11 @@
         app:layout_constraintTop_toBottomOf="@+id/victims_post_view_adapter">
 
         <ToggleButton
-            android:id="@+id/toggleButton"
+            android:id="@+id/upvote_victims_post_tb"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:background="@drawable/upvote_icon"
+            android:background="@android:color/transparent"
+            android:button="@drawable/upvote_icon"
             android:text="ToggleButton"
             android:textOff=" "
             android:textOn=" "
@@ -28,39 +29,39 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
-            android:id="@+id/imageButton3"
+            android:id="@+id/supports_btn"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginStart="75dp"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
-            app:layout_constraintBottom_toBottomOf="@+id/toggleButton"
-            app:layout_constraintStart_toEndOf="@+id/toggleButton"
-            app:layout_constraintTop_toTopOf="@+id/toggleButton"
+            app:layout_constraintBottom_toBottomOf="@+id/upvote_victims_post_tb"
+            app:layout_constraintStart_toEndOf="@+id/upvote_victims_post_tb"
+            app:layout_constraintTop_toTopOf="@+id/upvote_victims_post_tb"
             app:srcCompat="@drawable/support_icon" />
 
         <ImageButton
-            android:id="@+id/imageButton4"
+            android:id="@+id/report_btn"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginStart="75dp"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
-            app:layout_constraintBottom_toBottomOf="@+id/imageButton3"
-            app:layout_constraintStart_toEndOf="@+id/imageButton3"
-            app:layout_constraintTop_toTopOf="@+id/imageButton3"
-            app:srcCompat="@drawable/save_icon" />
+            app:layout_constraintBottom_toBottomOf="@+id/supports_btn"
+            app:layout_constraintStart_toEndOf="@+id/supports_btn"
+            app:layout_constraintTop_toTopOf="@+id/supports_btn"
+            app:srcCompat="@drawable/ic_baseline_report_24" />
 
         <TextView
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
-            android:text="save"
+            android:text="report"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/imageButton4"
-            app:layout_constraintStart_toStartOf="@+id/imageButton4"
-            app:layout_constraintTop_toBottomOf="@+id/imageButton4" />
+            app:layout_constraintEnd_toEndOf="@+id/report_btn"
+            app:layout_constraintStart_toStartOf="@+id/report_btn"
+            app:layout_constraintTop_toBottomOf="@+id/report_btn" />
 
         <TextView
             android:id="@+id/textView7"
@@ -80,32 +81,32 @@
             android:layout_marginStart="75dp"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
-            app:layout_constraintBottom_toBottomOf="@+id/imageButton4"
-            app:layout_constraintStart_toEndOf="@+id/imageButton4"
-            app:layout_constraintTop_toTopOf="@+id/imageButton4"
+            app:layout_constraintBottom_toBottomOf="@+id/report_btn"
+            app:layout_constraintStart_toEndOf="@+id/report_btn"
+            app:layout_constraintTop_toTopOf="@+id/report_btn"
             app:srcCompat="@drawable/share_icon" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/upvotes_victims_post_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
             android:text="256"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/toggleButton"
-            app:layout_constraintStart_toStartOf="@+id/toggleButton"
-            app:layout_constraintTop_toBottomOf="@+id/toggleButton" />
+            app:layout_constraintEnd_toEndOf="@+id/upvote_victims_post_tb"
+            app:layout_constraintStart_toStartOf="@+id/upvote_victims_post_tb"
+            app:layout_constraintTop_toBottomOf="@+id/upvote_victims_post_tb" />
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/supports_count_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
             android:text="12"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/imageButton3"
-            app:layout_constraintStart_toStartOf="@+id/imageButton3"
-            app:layout_constraintTop_toBottomOf="@+id/imageButton3" />
+            app:layout_constraintEnd_toEndOf="@+id/supports_btn"
+            app:layout_constraintStart_toStartOf="@+id/supports_btn"
+            app:layout_constraintTop_toBottomOf="@+id/supports_btn" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout

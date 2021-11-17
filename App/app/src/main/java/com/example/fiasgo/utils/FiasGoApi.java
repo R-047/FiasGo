@@ -7,10 +7,10 @@ import com.loopj.android.http.RequestParams;
 import cz.msebera.android.httpclient.Header;
 
 public class FiasGoApi {
-    //172.19.96.1
-    //192.168.1.101
-//    http://192.168.1.101:3000/
-    private static final String BASE_URL = "https://fias-go.herokuapp.com/";
+
+//    localhost: http://192.168.1.101:3000/
+//    heroku: https://fias-go.herokuapp.com/
+    private static final String BASE_URL = "http://192.168.1.101:3000/";
 
     private static AsyncHttpClient client = new AsyncHttpClient();
 

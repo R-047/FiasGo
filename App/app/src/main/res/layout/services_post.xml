@@ -28,7 +28,7 @@
         app:layout_constraintTop_toBottomOf="@+id/image_container_view_pager">
 
         <ToggleButton
-            android:id="@+id/toggleButton"
+            android:id="@+id/upvote_btn_services"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:background="@drawable/upvote_icon"
@@ -45,9 +45,9 @@
             android:layout_marginStart="75dp"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
-            app:layout_constraintBottom_toBottomOf="@+id/toggleButton"
-            app:layout_constraintStart_toEndOf="@+id/toggleButton"
-            app:layout_constraintTop_toTopOf="@+id/toggleButton"
+            app:layout_constraintBottom_toBottomOf="@+id/upvote_btn_services"
+            app:layout_constraintStart_toEndOf="@+id/upvote_btn_services"
+            app:layout_constraintTop_toTopOf="@+id/upvote_btn_services"
             app:srcCompat="@drawable/comments_icon" />
 
         <ImageButton
@@ -60,14 +60,14 @@
             app:layout_constraintBottom_toBottomOf="@+id/imageButton3"
             app:layout_constraintStart_toEndOf="@+id/imageButton3"
             app:layout_constraintTop_toTopOf="@+id/imageButton3"
-            app:srcCompat="@drawable/save_icon" />
+            app:srcCompat="@drawable/ic_baseline_report_24" />
 
         <TextView
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
-            android:text="save"
+            android:text="report"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/imageButton4"
             app:layout_constraintStart_toStartOf="@+id/imageButton4"
@@ -103,9 +103,9 @@
             android:layout_marginTop="1dp"
             android:text="256"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/toggleButton"
-            app:layout_constraintStart_toStartOf="@+id/toggleButton"
-            app:layout_constraintTop_toBottomOf="@+id/toggleButton" />
+            app:layout_constraintEnd_toEndOf="@+id/upvote_btn_services"
+            app:layout_constraintStart_toStartOf="@+id/upvote_btn_services"
+            app:layout_constraintTop_toBottomOf="@+id/upvote_btn_services" />
 
         <TextView
             android:id="@+id/textView6"
