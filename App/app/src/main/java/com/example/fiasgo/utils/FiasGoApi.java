@@ -10,7 +10,7 @@ public class FiasGoApi {
 
 //    localhost: http://192.168.1.101:3000/
 //    heroku: https://fias-go.herokuapp.com/
-    private static final String BASE_URL = "http://192.168.1.101:3000/";
+    private static final String BASE_URL = "https://fias-go.herokuapp.com/";
 
     private static AsyncHttpClient client = new AsyncHttpClient();
 
