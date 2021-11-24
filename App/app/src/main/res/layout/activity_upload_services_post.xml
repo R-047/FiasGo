@@ -4,53 +4,78 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_color"
     tools:context=".UploadServicesPostActivity">
+
+    <EditText
+        android:id="@+id/service_upload_ph_num"
+        android:layout_width="347dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/edittext_background"
+        android:drawableStart="@drawable/phone"
+        android:drawablePadding="16dp"
+        android:ems="10"
+        android:hint="Phone No"
+        android:inputType="textPersonName"
+        android:textColorHint="#000000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/service_upload_desc" />
+
+    <EditText
+        android:id="@+id/service_upload_desc"
+        android:layout_width="347dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="216dp"
+        android:background="@drawable/edittext_background"
+        android:drawableStart="@drawable/description"
+        android:drawablePadding="16dp"
+        android:ems="10"
+        android:hint="Description"
+        android:inputType="textPersonName"
+        android:textColor="#EDE9E9"
+        android:textColorHint="#000000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/services_upload_location_pick_btn"
+        style="@android:style/Widget.Button"
+        android:layout_width="347dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="84dp"
+        android:background="@drawable/btn_background"
+        android:onClick="pickLocation"
+        android:text="Pick Location"
+        android:textColor="#ffffff"
+
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:backgroundTint="#33BE8F"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/service_upload_ph_num" />
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="wrap_content"
+        style="@android:style/Widget.Button"
+        android:layout_width="347dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/btn_background"
         android:onClick="onUploadServicesPost"
-        android:text="services post"
+        android:text="Services Post"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:backgroundTint="#38D39F"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/services_upload_location_pick_btn" />
 
-    <Button
-        android:id="@+id/services_upload_location_pick_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="180dp"
-        android:onClick="pickLocation"
-        android:text="pick location"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/service_upload_ph_num" />
-
-    <EditText
-        android:id="@+id/service_upload_desc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="156dp"
-        android:ems="10"
-        android:hint="description"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/service_upload_ph_num"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="88dp"
-        android:ems="10"
-        android:hint="phone number"
-        android:inputType="phone"
-        app:layout_constraintEnd_toEndOf="@+id/service_upload_desc"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/service_upload_desc"
-        app:layout_constraintTop_toBottomOf="@+id/service_upload_desc" />
 </androidx.constraintlayout.widget.ConstraintLayout>
