@@ -37,6 +37,23 @@ const getServicesFeeds = async (user_lat, user_long) => {
 	})
 }
 
+const getServicesFeedsForAdmin = async () => {
+	return new Promise(async (res, rej) => {
+		const client = getClient();
+		await client.connect();
+		const result = await client.query(`select * from service_post`);
+		let final_result = [];
+		for(const element of result.rows){
+			const post_id = element.s_post_id;
+			const images_result = await client.query(`select postimageid,imagename from post_images_services group by postimageid having postid = ${post_id};`);
+			element.images = images_result.rows;
+			final_result.push(element);
+		}
+		await client.end();
+		res(final_result)		
+	})
+}
+
 
 
 
@@ -364,4 +381,4 @@ const getUsersServicesPost = async (user_id) => {
 
 
 
-module.exports = {getVictimsFeed, getServicesFeeds, uploadServicesPost, uploadVictimsPost, upvoteVictimsPost, upvoteServicesPost, downvoteVictimsPost, downvoteServicePost, PostComment, getPostComment, deletePostComment, takeDownVictimsPost,  takeDownServicesPost, getVictimsPost, getServicePost, getUsersVictimsPost, getUsersServicesPost};
+module.exports = {getVictimsFeed, getServicesFeeds, uploadServicesPost, uploadVictimsPost, upvoteVictimsPost, upvoteServicesPost, downvoteVictimsPost, downvoteServicePost, PostComment, getPostComment, deletePostComment, takeDownVictimsPost,  takeDownServicesPost, getVictimsPost, getServicePost, getUsersVictimsPost, getUsersServicesPost, getServicesFeedsForAdmin};

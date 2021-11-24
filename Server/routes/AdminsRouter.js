@@ -8,7 +8,9 @@ const takeDownPosts = express.Router();
 const getSinglePost = express.Router();
 const adminLogin = express.Router();
 const getUsersRouter = express.Router();
-const {updateUserStatusController, getCampInfoController, updateSupportStatusController, getSupportsController, getReportServicePostController, getReportVictimsPostController, takedownServicePostController, takedownVictimsPostController, getVictimsPostController, getServicePostController, adminAuthController, getUsersController} = require("../controllers/AdminsController");
+const getServicePostRouter = express.Router();
+const {updateUserStatusController, getCampInfoController, updateSupportStatusController, getSupportsController, getReportServicePostController, getReportVictimsPostController, takedownServicePostController, takedownVictimsPostController, getVictimsPostController, getServicePostController, adminAuthController, getUsersController, getServiceFeedsAdminsController} = require("../controllers/AdminsController");
+const { getUsers } = require("../models/UserModel");
 
 adminLogin.post("/", (req, res) => {
 	adminAuthController(req, res)
@@ -62,6 +64,13 @@ getUsersRouter.get("/", (req, res) => {
 	getUsersController(req, res)
 })
 
+getServicePostRouter.get("/", (req, res) => {
+	getServiceFeedsAdminsController(req, res)
+})
 
 
-module.exports = {getCampInfoRoute, adminLogin, updateUserStatusRoute, getSupportsRouter, getReports, takeDownPosts, getSinglePost, updateSupportStatusRoute, getUsersRouter};
+
+
+
+
+module.exports = {getCampInfoRoute, adminLogin, updateUserStatusRoute, getSupportsRouter, getReports, takeDownPosts, getSinglePost, updateSupportStatusRoute, getUsersRouter, getServicePostRouter};

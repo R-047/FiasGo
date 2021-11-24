@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -78,7 +79,8 @@ public class ServicesPostAdapter extends RecyclerView.Adapter<ServicesPostAdapte
     public class ServicePostAdapterHolder extends RecyclerView.ViewHolder {
         ImageView dp;
         RecyclerView imageSlider;
-        TextView user_name, location, description, post_title;
+        TextView user_name, location, description, post_title, upvotes_count, comments_count;
+        Button contact_btn;
         public ServicePostAdapterHolder(@NonNull View itemView) {
             super(itemView);
             dp = itemView.findViewById(R.id.profile_pic_image_view);
@@ -87,6 +89,9 @@ public class ServicesPostAdapter extends RecyclerView.Adapter<ServicesPostAdapte
             location = itemView.findViewById(R.id.location);
             description = itemView.findViewById(R.id.description);
             post_title = itemView.findViewById(R.id.details_header);
+            upvotes_count = itemView.findViewById(R.id.service_post_s_upvotes_tv);
+            comments_count = itemView.findViewById(R.id.service_post_s_comm_count_tv);
+            contact_btn = itemView.findViewById()
         }
     }
 }
