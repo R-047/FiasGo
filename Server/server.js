@@ -50,6 +50,7 @@ app.use("/getReports", AdminAuthenticate, require("./routes/AdminsRouter").getRe
 app.use("/removePost", AdminAuthenticate, require("./routes/AdminsRouter").takeDownPosts)
 app.use("/getPost", AdminAuthenticate, require("./routes/AdminsRouter").getSinglePost)
 app.use("/getUsers", AdminAuthenticate, require("./routes/AdminsRouter").getUsersRouter)
+app.use("/getServicePostAdmins", AdminAuthenticate, require("./routes/AdminsRouter").getServicePostRouter)
 //common
 app.use('/admingetCampsImages', AdminAuthenticate, require("./routes/getCampImagesRoute").getCampsImagesRouter)
 app.use('/admingetPostImage', AdminAuthenticate, require("./routes/getPostImagesRoute").getPostImagesRouter);

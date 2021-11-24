@@ -2,7 +2,7 @@ const {updateUserStatus, getUsers} = require("../models/UserModel")
 const {getCampInfo} = require("../models/MapsModel")
 const {updateSupportStatus, getSupports} = require("../models/SupportsModel")
 const {getReportsServicesPost, getReportsVictimsPost} = require("../models/ReportsModel")
-const {takeDownServicesPost, takeDownVictimsPost, getServicePost, getVictimsPost}  = require("../models/PostModel")
+const {takeDownServicesPost, takeDownVictimsPost, getServicePost, getVictimsPost,  getServicesFeedsForAdmin}  = require("../models/PostModel")
 const {adminAuth} = require("../models/adminModel")
 
 const adminAuthController = async (req, res) => {
@@ -85,6 +85,11 @@ const getUsersController = async (req, res) => {
 	res.json(JSON.parse(JSON.stringify(result)))
 }
 
+const getServiceFeedsAdminsController = async (req, res) => {
+	const result = await getServicesFeedsForAdmin()
+	res.json(JSON.parse(JSON.stringify(result)))
+}
 
 
-module.exports = {updateUserStatusController, getCampInfoController, updateSupportStatusController, getSupportsController, getReportServicePostController, getReportVictimsPostController, takedownServicePostController, takedownVictimsPostController, getVictimsPostController, getServicePostController, adminAuthController, getUsersController}
+
+module.exports = {updateUserStatusController, getCampInfoController, updateSupportStatusController, getSupportsController, getReportServicePostController, getReportVictimsPostController, takedownServicePostController, takedownVictimsPostController, getVictimsPostController, getServicePostController, adminAuthController, getUsersController,  getServiceFeedsAdminsController}
