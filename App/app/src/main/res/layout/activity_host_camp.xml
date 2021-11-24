@@ -4,53 +4,72 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_color"
     tools:context=".HostCampActivity">
 
     <EditText
         android:id="@+id/host_camp_camp_name_et"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="88dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="228dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/edittext_background"
+
+        android:drawableStart="@drawable/description"
+        android:drawablePadding="16dp"
+
         android:ems="10"
-        android:hint="camp name"
+        android:hint="Camp Name"
         android:inputType="textPersonName"
-        android:text="test1"
+        android:textColor="#000000"
+        android:textColorHint="#000000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.569"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/host_camp_img_cont_rv" />
 
     <Button
         android:id="@+id/button6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_width="163dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/btn_background"
         android:onClick="pick_time"
         android:text="select timings"
+        app:backgroundTint="#33BE8F"
         app:layout_constraintEnd_toEndOf="@+id/host_camp_select_time_tv"
+        app:layout_constraintHorizontal_bias="0.533"
         app:layout_constraintStart_toStartOf="@+id/host_camp_select_time_tv"
         app:layout_constraintTop_toBottomOf="@+id/host_camp_select_time_tv" />
 
     <Button
         android:id="@+id/button7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_width="163dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/btn_background"
         android:onClick="pick_date"
         android:text="select date"
+        app:backgroundTint="#33BE8F"
         app:layout_constraintEnd_toEndOf="@+id/host_camp_display_date_tv"
-        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="@+id/host_camp_display_date_tv"
         app:layout_constraintTop_toBottomOf="@+id/host_camp_display_date_tv" />
 
     <EditText
         android:id="@+id/host_camp_camp_desc_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_width="233dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/edittext_background"
+        android:drawableStart="@drawable/description"
+        android:drawablePadding="16dp"
         android:ems="10"
         android:hint="camp description"
         android:inputType="textPersonName"
-        android:text="desc"
+        android:textColor="#000000"
+        android:textColorHint="#000000"
         app:layout_constraintEnd_toEndOf="@+id/host_camp_id_et"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/host_camp_id_et"
@@ -58,24 +77,35 @@
 
     <EditText
         android:id="@+id/host_camp_ph_num_et"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_width="235dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/edittext_background"
+        android:drawableStart="@drawable/phone"
+        android:drawablePadding="16dp"
         android:ems="10"
+
+
         android:hint="contact number"
         android:inputType="textPersonName"
-        android:text="1234567890"
+        android:textColor="#000000"
+        android:textColorHint="#000000"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/host_camp_camp_desc_tv"
         app:layout_constraintStart_toStartOf="@+id/host_camp_camp_desc_tv"
         app:layout_constraintTop_toBottomOf="@+id/host_camp_camp_desc_tv" />
 
     <Button
         android:id="@+id/button9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="209dp"
+        android:layout_height="50dp"
         android:layout_marginTop="4dp"
+        android:background="@drawable/btn_background"
         android:onClick="pick_location"
         android:text="camp location"
+        app:backgroundTint="#33BE8F"
         app:layout_constraintEnd_toEndOf="@+id/host_camp_select_location_tv"
         app:layout_constraintStart_toStartOf="@+id/host_camp_select_location_tv"
         app:layout_constraintTop_toBottomOf="@+id/host_camp_select_location_tv" />
@@ -90,13 +120,14 @@
 
     <Button
         android:id="@+id/button10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="213dp"
+        android:layout_height="60dp"
         android:layout_marginTop="24dp"
         android:onClick="host"
         android:text="host camp"
+        app:backgroundTint="#33BE8F"
         app:layout_constraintEnd_toEndOf="@+id/button9"
-        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/button9"
         app:layout_constraintTop_toBottomOf="@+id/button9" />
 
@@ -106,8 +137,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:text="select date"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.188"
+        app:layout_constraintHorizontal_bias="0.228"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/host_camp_camp_name_et" />
 
@@ -117,8 +149,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:text="select timings"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.777"
+        app:layout_constraintHorizontal_bias="0.814"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/host_camp_camp_name_et" />
 
@@ -128,6 +161,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="please select a location to host the camp"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -135,13 +169,17 @@
 
     <EditText
         android:id="@+id/host_camp_id_et"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="239dp"
+        android:layout_height="42dp"
         android:layout_marginTop="12dp"
+        android:background="@drawable/edittext_background"
+        android:drawableStart="@drawable/description"
+        android:drawablePadding="16dp"
         android:ems="10"
         android:hint="provide your id"
         android:inputType="textPersonName"
-        android:text="1234"
+        android:textColor="#000000"
+        android:textColorHint="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button7" />

@@ -49,9 +49,11 @@
 
     <Button
         android:id="@+id/user_Activity_rfh_view_list_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
+        android:layout_width="116dp"
+        android:layout_height="38dp"
+        android:background="@drawable/btn_background"
         android:text="view list"
+        app:backgroundTint="#33BE8F"
         app:layout_constraintBottom_toBottomOf="@+id/user_activity_rfh_date_tv"
         app:layout_constraintEnd_toEndOf="@+id/rfh_activity_rfh_image_container"
         app:layout_constraintTop_toTopOf="@+id/user_activity_rfh_date_tv" />

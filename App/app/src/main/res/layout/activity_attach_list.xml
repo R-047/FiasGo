@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_color"
     tools:context=".AttachListActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,13 +19,14 @@
 
         <EditText
             android:id="@+id/enter_needy_item_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="214dp"
+            android:layout_height="42dp"
             android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
             android:ems="10"
-            android:hint="item name"
+            android:hint="Item Name"
             android:inputType="textPersonName"
+            android:textColor="#000000"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,25 +37,28 @@
             android:layout_marginStart="36dp"
             android:layout_marginEnd="32dp"
             android:ems="10"
-            android:hint="quantity"
+            android:hint="Quantity"
             android:inputType="number"
+            android:textColor="#000000"
             app:layout_constraintBottom_toBottomOf="@+id/enter_needy_item_name"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/enter_needy_item_name"
             app:layout_constraintTop_toTopOf="@+id/enter_needy_item_name"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="1.0" />
 
         <EditText
             android:id="@+id/enter_needy_item_desc"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="321dp"
+            android:layout_height="46dp"
             android:layout_marginStart="32dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="8dp"
             android:ems="10"
-            android:hint="description"
+            android:hint="Description"
             android:inputType="textPersonName"
+            android:textColor="#000000"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -62,10 +67,12 @@
 
         <Button
             android:id="@+id/add_item_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="164dp"
+            android:layout_height="48dp"
             android:layout_marginTop="16dp"
+            android:background="@drawable/btn_background"
             android:onClick="add_item"
+            app:backgroundTint="#33BE8F"
             android:text="add"
             app:layout_constraintEnd_toEndOf="@+id/enter_needy_item_desc"
             app:layout_constraintStart_toStartOf="@+id/enter_needy_item_desc"
@@ -93,19 +100,22 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="152dp"
         android:text="Add the list of required items"
+        android:textColor="#000000"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/save_lst_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="84dp"
+        android:layout_width="121dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="76dp"
+        android:background="@drawable/btn_background"
         android:onClick="saveList"
         android:text="save"
+        app:backgroundTint="#33BE8F"
         app:layout_constraintBottom_toBottomOf="@+id/textView"
         app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toTopOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.448" />
+        app:layout_constraintVertical_bias="0.538" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
