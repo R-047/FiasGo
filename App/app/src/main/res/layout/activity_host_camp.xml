@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HostCampActivity">
+
+    <EditText
+        android:id="@+id/host_camp_camp_name_et"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:hint="camp name"
+        android:inputType="textPersonName"
+        android:text="test1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/host_camp_img_cont_rv" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:onClick="pick_time"
+        android:text="select timings"
+        app:layout_constraintEnd_toEndOf="@+id/host_camp_select_time_tv"
+        app:layout_constraintStart_toStartOf="@+id/host_camp_select_time_tv"
+        app:layout_constraintTop_toBottomOf="@+id/host_camp_select_time_tv" />
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:onClick="pick_date"
+        android:text="select date"
+        app:layout_constraintEnd_toEndOf="@+id/host_camp_display_date_tv"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="@+id/host_camp_display_date_tv"
+        app:layout_constraintTop_toBottomOf="@+id/host_camp_display_date_tv" />
+
+    <EditText
+        android:id="@+id/host_camp_camp_desc_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="camp description"
+        android:inputType="textPersonName"
+        android:text="desc"
+        app:layout_constraintEnd_toEndOf="@+id/host_camp_id_et"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/host_camp_id_et"
+        app:layout_constraintTop_toBottomOf="@+id/host_camp_id_et" />
+
+    <EditText
+        android:id="@+id/host_camp_ph_num_et"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="contact number"
+        android:inputType="textPersonName"
+        android:text="1234567890"
+        app:layout_constraintEnd_toEndOf="@+id/host_camp_camp_desc_tv"
+        app:layout_constraintStart_toStartOf="@+id/host_camp_camp_desc_tv"
+        app:layout_constraintTop_toBottomOf="@+id/host_camp_camp_desc_tv" />
+
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:onClick="pick_location"
+        android:text="camp location"
+        app:layout_constraintEnd_toEndOf="@+id/host_camp_select_location_tv"
+        app:layout_constraintStart_toStartOf="@+id/host_camp_select_location_tv"
+        app:layout_constraintTop_toBottomOf="@+id/host_camp_select_location_tv" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/host_camp_img_cont_rv"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:onClick="host"
+        android:text="host camp"
+        app:layout_constraintEnd_toEndOf="@+id/button9"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="@+id/button9"
+        app:layout_constraintTop_toBottomOf="@+id/button9" />
+
+    <TextView
+        android:id="@+id/host_camp_display_date_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="select date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.188"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/host_camp_camp_name_et" />
+
+    <TextView
+        android:id="@+id/host_camp_select_time_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="select timings"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.777"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/host_camp_camp_name_et" />
+
+    <TextView
+        android:id="@+id/host_camp_select_location_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="please select a location to host the camp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/host_camp_ph_num_et" />
+
+    <EditText
+        android:id="@+id/host_camp_id_et"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:hint="provide your id"
+        android:inputType="textPersonName"
+        android:text="1234"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button7" />
+
+    <ImageView
+        android:id="@+id/host_camp_select_img_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="selectImageFromGallery"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/host_camp_img_cont_rv"
+        app:srcCompat="@drawable/ic_baseline_image_24" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

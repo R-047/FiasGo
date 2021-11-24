@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -153,21 +154,40 @@ public class UploadPostFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
         if(requestCode == 1) {
             if(resultCode == Activity.RESULT_OK) {
                 if(data.getClipData() != null) {
+                    ArrayList<String> images_refs = new ArrayList<>();
+                    Bitmap bm = null;
+                    String destFolder = getActivity().getCacheDir().getAbsolutePath();
+                    FileOutputStream out = null;
                     int count = data.getClipData().getItemCount(); //evaluate the count before the for loop --- otherwise, the count is evaluated every loop.
                     for(int i = 0; i < count; i++) {
                         Uri imageUri = data.getClipData().getItemAt(i).getUri();
                         System.out.println(imageUri);
-                        String imagePath = imageUri.getEncodedPath();
-                        System.out.println(imagePath);
-                        selectedImagesArray.add(imagePath);
+                        try {
+                            bm = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), imageUri);
+                            String file_name = UUID.randomUUID().toString()+".png";
+                            String ImgReference = destFolder+file_name;
+                            try {
+                                out = new FileOutputStream(ImgReference);
+                                bm.compress(Bitmap.CompressFormat.PNG, 100, out);
+                                images_refs.add(ImgReference);
+                                selectedImagesArray.add(ImgReference);
+                                selectedImages.setImageBitmap(bm);
+                            } catch (FileNotFoundException e) {
+                                e.printStackTrace();
+                            }
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+
+                        }
                         //do something with the image (save it to some directory or whatever you need to do with it here)
                     }
                 }
             }
-    }
     }
 
 

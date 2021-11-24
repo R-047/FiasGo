@@ -92,8 +92,22 @@ public class UserActivityAdapter extends RecyclerView.Adapter<UserActivityAdapte
                     holder.s_desc.setText(s_desc);
                     break;
                 case "SUPPORT":
+                    
                     break;
                 case "CAMP":
+
+                    JSONArray camp_images_Arr = curr_jsonobj.getJSONArray("images");
+                    holder.camp_activity_rv.setAdapter(new image_slider_class(context, camp_images_Arr, image_slider_class.CAMP));
+                    LinearLayoutManager c_lm = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, true);
+                    c_lm.setReverseLayout(false);
+                    holder.camp_activity_rv.setLayoutManager(c_lm);
+                    String camp_host_date = curr_jsonobj.getString("date");
+                    camp_host_date = camp_host_date.split("GMT")[0].trim();
+                    String camp_desc = curr_jsonobj.getString("description");
+                    String camp_name = curr_jsonobj.getString("camp_name");
+                    holder.camp_date.setText(camp_host_date);
+                    holder.camp_desc.setText(camp_desc);
+                    holder.camp_name.setText(camp_name);
                     break;
             }
         } catch (JSONException e) {

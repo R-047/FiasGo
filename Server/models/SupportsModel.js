@@ -77,7 +77,7 @@ const getUserSupports = async(user_id) => {
 	return new Promise(async (res, rej) => {
 		const client = getClient();
 		await client.connect();
-		const result = await client.query(`select supports.*, needy_items.user_id as victim_user_id, needy_items.list_item_name from supports join needy_items using(list_item_id) where support_user_id = ${user_id}`);
+		const result = await client.query(` select supports.*, users.user_name, needy_items.user_id as victim_user_id, needy_items.list_item_name from supports join needy_items using(list_item_id) join users using(user_id) where support_user_id = ${user_id}`);
 		await client.end();
 		res(result)		
 	})

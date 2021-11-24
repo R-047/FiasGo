@@ -24,6 +24,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 
@@ -66,6 +67,7 @@ public class  MapsFragment extends Fragment {
     private GoogleMap gmap;
     private FusedLocationProviderClient mFusedLocationClient;
     private int PERMISSION_ID = 44;
+    ImageView host_camp_btn;
     private OnMapReadyCallback callback = new OnMapReadyCallback() {
 
         /**
@@ -340,6 +342,13 @@ public class  MapsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        host_camp_btn = view.findViewById(R.id.host_camp_btn);
+        host_camp_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                hostCamp();
+            }
+        });
         SupportMapFragment mapFragment =
                 (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
         if (mapFragment != null) {
@@ -357,6 +366,11 @@ public class  MapsFragment extends Fragment {
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(getActivity());
 
         return inflater.inflate(R.layout.fragment_maps, container, false);
+    }
+
+
+    public void hostCamp(){
+        startActivity(new Intent(getContext(), HostCampActivity.class));
     }
 
 

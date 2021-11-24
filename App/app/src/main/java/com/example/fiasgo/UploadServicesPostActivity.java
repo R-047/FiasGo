@@ -79,10 +79,6 @@ public class UploadServicesPostActivity extends AppCompatActivity {
                     double latitude = place.getLatLng().latitude;
                     double longitude = place.getLatLng().longitude;
                     System.out.println(placeName+" "+latitude+" "+longitude);
-
-
-
-
             }
         }
     }
