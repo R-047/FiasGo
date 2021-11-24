@@ -48,7 +48,7 @@ public class VictimsPostAdapter extends RecyclerView.Adapter<VictimsPostAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull VictimsPostAdapter.VictimsPostAdapterHolder holder, int position) {
-        String user_name = null, loation="bangalore",  upvotes=null, supports_count=null, post_desc = null;
+        String user_name = null, location=null,  upvotes=null, supports_count=null, post_desc = null;
         JSONArray pics = null;
 
         try {
@@ -58,10 +58,11 @@ public class VictimsPostAdapter extends RecyclerView.Adapter<VictimsPostAdapter.
             supports_count = post.getString("v_count_supports");
             post_desc = post.getString("v_post_desc");
             pics = post.getJSONArray("images");
+            location = post.getString("victims_location_name");
 
             holder.user_name.setText(user_name);
             holder.post_title.setText("details");
-            holder.location.setText(loation);
+            holder.location.setText(location);
             holder.description.setText(post_desc);
             holder.support_Text.setText(supports_count);
             holder.upvotes_Text.setText(upvotes);

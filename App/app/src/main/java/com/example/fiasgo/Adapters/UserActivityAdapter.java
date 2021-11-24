@@ -92,7 +92,13 @@ public class UserActivityAdapter extends RecyclerView.Adapter<UserActivityAdapte
                     holder.s_desc.setText(s_desc);
                     break;
                 case "SUPPORT":
-                    
+                    String victims_name = curr_jsonobj.getString("user_name");
+                    String support_date = curr_jsonobj.getString("date");
+                    support_date = support_date.split("GMT")[0].trim();
+                    String quantity = curr_jsonobj.getString("quantity");
+                    String item_name = curr_jsonobj.getString("list_item_name");
+                    holder.support_date.setText(support_date);
+                    holder.supports_desc.setText("you donated "+quantity+" "+item_name+" to "+victims_name);
                     break;
                 case "CAMP":
 
