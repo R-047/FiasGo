@@ -126,6 +126,14 @@ public class MainActivity extends AppCompatActivity {
                     getSupportFragmentManager().beginTransaction().replace(R.id.options_holder, uploadPost).commit();
                     Toast.makeText(MainActivity.this, "open post", Toast.LENGTH_SHORT).show();
                     break;
+
+                case R.id.news_itm:
+                    bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+                    Fragment news_frag = new NewsFragment();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.options_holder, news_frag).commit();
+                    Toast.makeText(MainActivity.this, "open news", Toast.LENGTH_SHORT).show();
+                    break;
+
                 case R.id.timeline_itm:
                     bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
                     Fragment timeLine = new TimelineFragment();

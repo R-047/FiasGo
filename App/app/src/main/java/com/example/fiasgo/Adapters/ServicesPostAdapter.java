@@ -1,8 +1,12 @@
 package com.example.fiasgo.Adapters;
 
+import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
@@ -45,7 +50,7 @@ public class ServicesPostAdapter extends RecyclerView.Adapter<ServicesPostAdapte
 
     @Override
     public void onBindViewHolder(@NonNull ServicesPostAdapter.ServicePostAdapterHolder holder, int position) {
-        String user_name = null, loation="bangalore", contact_info=null, upvotes=null, comment_count=null, post_desc;
+        String user_name = null, location=null, contact_info=null, upvotes=null, comment_count=null, post_desc;
         JSONArray pics = null;
 
         try {
@@ -55,11 +60,29 @@ public class ServicesPostAdapter extends RecyclerView.Adapter<ServicesPostAdapte
             upvotes = post.getString("s_upvotes");
             comment_count = post.getString("comments_count");
             post_desc = post.getString("s_post_desc");
+            location = post.getString("service_location_name");
             pics = post.getJSONArray("images");
             holder.user_name.setText(user_name);
             holder.post_title.setText("details");
-            holder.location.setText(loation);
+            holder.location.setText(location);
             holder.description.setText(post_desc);
+            holder.upvotes_count.setText(upvotes);
+            holder.comments_count.setText(comment_count);
+            String finalContact_info = contact_info;
+            holder.contact_btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    System.out.println(finalContact_info);
+                    Intent callIntent = new Intent(Intent.ACTION_CALL);
+                    callIntent.setData(Uri.parse("tel:"+finalContact_info));
+
+                    if (ActivityCompat.checkSelfPermission(context,
+                            Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                        return;
+                    }
+                    context.startActivity(callIntent);
+                }
+            });
 
             holder.imageSlider.setAdapter(new image_slider_class(context, pics, image_slider_class.SERVICE));
             LinearLayoutManager lm = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, true);
@@ -91,7 +114,7 @@ public class ServicesPostAdapter extends RecyclerView.Adapter<ServicesPostAdapte
             post_title = itemView.findViewById(R.id.details_header);
             upvotes_count = itemView.findViewById(R.id.service_post_s_upvotes_tv);
             comments_count = itemView.findViewById(R.id.service_post_s_comm_count_tv);
-            contact_btn = itemView.findViewById()
+            contact_btn = itemView.findViewById(R.id.contact_button);
         }
     }
 }
