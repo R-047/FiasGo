@@ -316,19 +316,35 @@ public class  MapsFragment extends Fragment {
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-
-                        gmap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
-                            @Override
-                            public void onInfoWindowClick(@NonNull Marker marker) {
-                                System.out.println("openeing activity: "+marker.getSnippet());
-                                Intent intent = new Intent(getContext(), CampInfoActivity.class);
-                                intent.putExtra("camp_obj", marker.getSnippet());
-                                startActivity(intent);
-                                //TODO: if marker.getSnippet is null dont do anything, if marker.getSnippet is hospital details then open the google maps by passing specific coordinates from get snippets, else if if marker.getSnippet is camps then open another activity to display info about the camp
-                            }
-                        });
-
                     }
+                    gmap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+                        @Override
+                        public void onInfoWindowClick(@NonNull Marker marker) {
+                            try {
+                                JSONObject jsonObject = new JSONObject(marker.getSnippet());
+                                if(jsonObject.has("camp_id")){
+                                    System.out.println("openeing activity: "+marker.getSnippet());
+                                    Intent intent = new Intent(getContext(), CampInfoActivity.class);
+                                    intent.putExtra("camp_obj", marker.getSnippet());
+                                    startActivity(intent);
+                                }else{
+                                    System.out.println("hospital selected");
+                                    Double lat = jsonObject.getDouble("lat");
+                                    Double longit = jsonObject.getDouble("long");
+                                    System.out.println(lat+" "+ longit);
+                                    Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
+                                            Uri.parse("geo:"+lat+","+longit+"?q="+lat+","+longit+" (name)"));
+// the following line should be used if you want use only Google maps
+                                    intent.setComponent(new ComponentName("com.google.android.apps.maps", "com.google.android.maps.MapsActivity"));
+                                    startActivity(intent);
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+
+                            //TODO: if marker.getSnippet is null dont do anything, if marker.getSnippet is hospital details then open the google maps by passing specific coordinates from get snippets, else if if marker.getSnippet is camps then open another activity to display info about the camp
+                        }
+                    });
                 }
                 else{
                     User.Logout(getActivity());
