@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -17,6 +18,7 @@ import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Looper;
 import android.provider.Settings;
@@ -270,10 +272,11 @@ public class  MapsFragment extends Fragment {
                         e.printStackTrace();
                     }
                     for(int i = 0 ; i<HospitalList.length(); i++){
+                        Double lat = 0.0, longit = 0.0;
                         try {
                             JSONObject hospital = HospitalList.getJSONObject(i);
-                            Double lat = hospital.getDouble("lat");
-                            Double longit = hospital.getDouble("long");
+                            lat = hospital.getDouble("lat");
+                            longit = hospital.getDouble("long");
                             LatLng hospital_nearby = new LatLng(lat, longit);
                             gmap.addMarker(new MarkerOptions()
                                     .snippet(hospital.put("Type","hospital").toString())
@@ -282,6 +285,18 @@ public class  MapsFragment extends Fragment {
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
+                        Double finalLat = lat;
+                        Double finalLongit = longit;
+
+//                        gmap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+//                            @Override
+//                            public void onInfoWindowClick(@NonNull Marker marker) {
+//                                System.out.println(finalLat +" "+ finalLongit);
+//                                Intent intent = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse("geo:"+finalLat+","+finalLongit+"?q="+finalLat+","+finalLongit+" (name)"));
+//                                intent.setComponent(new ComponentName("com.google.android.apps.maps", "com.google.android.maps.MapsActivity"));
+//                                startActivity(intent);
+//                            }
+//                        });
 
                     }
                     for(int i = 0 ; i<CampsList.length(); i++){
@@ -306,6 +321,9 @@ public class  MapsFragment extends Fragment {
                             @Override
                             public void onInfoWindowClick(@NonNull Marker marker) {
                                 System.out.println("openeing activity: "+marker.getSnippet());
+                                Intent intent = new Intent(getContext(), CampInfoActivity.class);
+                                intent.putExtra("camp_obj", marker.getSnippet());
+                                startActivity(intent);
                                 //TODO: if marker.getSnippet is null dont do anything, if marker.getSnippet is hospital details then open the google maps by passing specific coordinates from get snippets, else if if marker.getSnippet is camps then open another activity to display info about the camp
                             }
                         });

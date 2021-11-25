@@ -51,7 +51,7 @@
             app:srcCompat="@drawable/comments_icon" />
 
         <ImageButton
-            android:id="@+id/imageButton4"
+            android:id="@+id/report_service_post_btn"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginStart="75dp"
@@ -69,9 +69,9 @@
             android:layout_marginTop="1dp"
             android:text="report"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/imageButton4"
-            app:layout_constraintStart_toStartOf="@+id/imageButton4"
-            app:layout_constraintTop_toBottomOf="@+id/imageButton4" />
+            app:layout_constraintEnd_toEndOf="@+id/report_service_post_btn"
+            app:layout_constraintStart_toStartOf="@+id/report_service_post_btn"
+            app:layout_constraintTop_toBottomOf="@+id/report_service_post_btn" />
 
         <TextView
             android:id="@+id/textView7"
@@ -91,9 +91,9 @@
             android:layout_marginStart="75dp"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
-            app:layout_constraintBottom_toBottomOf="@+id/imageButton4"
-            app:layout_constraintStart_toEndOf="@+id/imageButton4"
-            app:layout_constraintTop_toTopOf="@+id/imageButton4"
+            app:layout_constraintBottom_toBottomOf="@+id/report_service_post_btn"
+            app:layout_constraintStart_toEndOf="@+id/report_service_post_btn"
+            app:layout_constraintTop_toTopOf="@+id/report_service_post_btn"
             app:srcCompat="@drawable/share_icon" />
 
         <TextView

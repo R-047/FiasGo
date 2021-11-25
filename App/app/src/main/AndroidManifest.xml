@@ -24,7 +24,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FiasGo"
         android:usesCleartextTraffic="true">
-        <activity android:name=".HostCampActivity"></activity>
+        <activity android:name=".CampInfoActivity"></activity>
+        <activity android:name=".HostCampActivity" />
         <activity android:name=".ItemsToSupportActivity" />
         <activity android:name=".AttachListActivity" />
         <activity android:name=".UploadVictimsPostActivity" />
